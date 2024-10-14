@@ -2,7 +2,7 @@
 //  ViewController.m
 //  My3DTouch
 //
-//  Created by cheyipai on 2024/9/26.
+//  Created by on 2024/9/26.
 //
 
 #import "ViewController.h"

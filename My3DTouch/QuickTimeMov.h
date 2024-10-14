@@ -2,7 +2,7 @@
 //  QuickTimeMov.h
 //  My3DTouch
 //
-//  Created by cheyipai on 2024/10/14.
+//  Created by on 2024/10/14.
 //
 
 #import <Foundation/Foundation.h>
