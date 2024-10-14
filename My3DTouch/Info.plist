@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Home Screen Shortcut Items1</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tab_shouye_normal</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>首页</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.touch.home</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tab_che_normal</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>车辆</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.touch.qiche</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tab_discover_normal</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>发现</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.touch.faxian</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tab_wode_normal</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>我的</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.touch.wode</string>
+		</dict>
+	</array>
+</dict>
+</plist>
