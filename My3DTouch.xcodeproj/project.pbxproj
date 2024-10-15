@@ -17,6 +17,9 @@
 		20A7FB012CBCFA7600A2598B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7FB002CBCFA7600A2598B /* DetailViewController.m */; };
 		20A7FB042CBD2C8200A2598B /* JPEG.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7FB032CBD2C8200A2598B /* JPEG.m */; };
 		20A7FB072CBD2D8300A2598B /* QuickTimeMov.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7FB062CBD2D8300A2598B /* QuickTimeMov.m */; };
+		20A7FB0A2CBE036000A2598B /* LivePhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7FB092CBE036000A2598B /* LivePhotoPickerViewController.m */; };
+		20A7FB0D2CBE124300A2598B /* PHAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7FB0C2CBE124300A2598B /* PHAssetsViewController.m */; };
+		20A7FB102CBE182700A2598B /* LocalFielViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A7FB0F2CBE182700A2598B /* LocalFielViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,12 @@
 		20A7FB032CBD2C8200A2598B /* JPEG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPEG.m; sourceTree = "<group>"; };
 		20A7FB052CBD2D8300A2598B /* QuickTimeMov.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickTimeMov.h; sourceTree = "<group>"; };
 		20A7FB062CBD2D8300A2598B /* QuickTimeMov.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickTimeMov.m; sourceTree = "<group>"; };
+		20A7FB082CBE036000A2598B /* LivePhotoPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePhotoPickerViewController.h; sourceTree = "<group>"; };
+		20A7FB092CBE036000A2598B /* LivePhotoPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePhotoPickerViewController.m; sourceTree = "<group>"; };
+		20A7FB0B2CBE124300A2598B /* PHAssetsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHAssetsViewController.h; sourceTree = "<group>"; };
+		20A7FB0C2CBE124300A2598B /* PHAssetsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHAssetsViewController.m; sourceTree = "<group>"; };
+		20A7FB0E2CBE182700A2598B /* LocalFielViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalFielViewController.h; sourceTree = "<group>"; };
+		20A7FB0F2CBE182700A2598B /* LocalFielViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalFielViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +81,12 @@
 			children = (
 				20A7FAD42CA53FEA00A2598B /* AppDelegate.h */,
 				20A7FAD52CA53FEA00A2598B /* AppDelegate.m */,
+				20A7FB0E2CBE182700A2598B /* LocalFielViewController.h */,
+				20A7FB0F2CBE182700A2598B /* LocalFielViewController.m */,
+				20A7FB082CBE036000A2598B /* LivePhotoPickerViewController.h */,
+				20A7FB092CBE036000A2598B /* LivePhotoPickerViewController.m */,
+				20A7FB0B2CBE124300A2598B /* PHAssetsViewController.h */,
+				20A7FB0C2CBE124300A2598B /* PHAssetsViewController.m */,
 				20A7FADA2CA53FEA00A2598B /* ViewController.h */,
 				20A7FADB2CA53FEA00A2598B /* ViewController.m */,
 				20A7FAFC2CBCEE6600A2598B /* PeekAndPopViewController.h */,
@@ -162,11 +177,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A7FB012CBCFA7600A2598B /* DetailViewController.m in Sources */,
+				20A7FB0A2CBE036000A2598B /* LivePhotoPickerViewController.m in Sources */,
+				20A7FB102CBE182700A2598B /* LocalFielViewController.m in Sources */,
 				20A7FB042CBD2C8200A2598B /* JPEG.m in Sources */,
 				20A7FAFE2CBCEE6600A2598B /* PeekAndPopViewController.m in Sources */,
 				20A7FADC2CA53FEA00A2598B /* ViewController.m in Sources */,
 				20A7FB072CBD2D8300A2598B /* QuickTimeMov.m in Sources */,
 				20A7FAD62CA53FEA00A2598B /* AppDelegate.m in Sources */,
+				20A7FB0D2CBE124300A2598B /* PHAssetsViewController.m in Sources */,
 				20A7FAE72CA53FEC00A2598B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import <Photos/Photos.h>
+#import <PhotosUI/PhotosUI.h>
 #import "JPEG.h"
 #import "QuickTimeMov.h"
 
@@ -14,6 +15,7 @@
 
 @property(nonatomic,strong) UIImageView *coverImage;
 @property(nonatomic, strong) NSString *videoUrl;
+@property(nonatomic, strong) PHLivePhotoView *livePhotoView;
 
 @end
 
@@ -22,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Home";
+    self.title = @"手写Live Photo实现";
     
     UIButton *pickerButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 100, 140, 30)];
     [pickerButton setTitle:@"Picker video" forState:UIControlStateNormal];
@@ -36,8 +38,23 @@
     [saveButton addTarget:self action:@selector(saveButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:saveButton];
     
-    self.coverImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(pickerButton.frame), CGRectGetWidth(self.view.frame), 300)];
+    // 首帧图
+    UILabel *coverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(pickerButton.frame) + 10, 120, 30)];
+    coverLabel.text = @"首帧图";
+    coverLabel.textColor = [UIColor blackColor];
+    [self.view addSubview:coverLabel];
+    self.coverImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(coverLabel.frame), CGRectGetWidth(self.view.frame), 300)];
     [self.view addSubview:self.coverImage];
+    
+    // live photo
+    UILabel *livePhotoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.coverImage.frame) + 10, 120, 30)];
+    livePhotoLabel.text = @"Live Photo(长按即可播放)";
+    livePhotoLabel.textColor = [UIColor blackColor];
+    [self.view addSubview:livePhotoLabel];
+    PHLivePhotoView * livePhotoView = [[PHLivePhotoView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(livePhotoLabel.frame), CGRectGetWidth(self.view.frame), 300)];
+    livePhotoView.hidden = YES;
+    [self.view addSubview:livePhotoView];
+    self.livePhotoView = livePhotoView;
     
 }
 
@@ -95,7 +112,17 @@
         [quickMov write:movPath assetIdentifier:assetIdentifier];
     });
     
+    __weak typeof (self)ws = self;
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        // 展示出 live photo
+        ws.livePhotoView.hidden = NO;
+        [PHLivePhoto requestLivePhotoWithResourceFileURLs:@[[NSURL fileURLWithPath:movPath], [NSURL fileURLWithPath:imagePath]] placeholderImage:self.coverImage.image targetSize:self.coverImage.image.size contentMode:PHImageContentModeAspectFit resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nonnull info) {
+            if (livePhoto) {
+                ws.livePhotoView.livePhoto = livePhoto;
+            }
+        }];
+        
+        // 写入相册
         PHAuthorizationStatus authstatus = [PHPhotoLibrary authorizationStatus];
         if (authstatus == PHAuthorizationStatusAuthorized) { //已经授权
             [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
@@ -125,8 +152,6 @@
 
 - (UIImage *)getVideoImageWithTime:(Float64)currentTime videoPath:(NSURL *)path {
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:path options:nil];
-//        float fps = [[[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] nominalFrameRate];
-//        NSLog(@"视频帧率%f",fps);
     AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
     gen.appliesPreferredTrackTransform = YES;
     gen.requestedTimeToleranceAfter = kCMTimeZero;// 精确提取某一帧,需要这样处理

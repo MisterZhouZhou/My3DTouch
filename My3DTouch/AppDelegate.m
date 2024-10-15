@@ -7,6 +7,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "LocalFielViewController.h"
+#import "LivePhotoPickerViewController.h"
+#import "PHAssetsViewController.h"
 #import "PeekAndPopViewController.h"
 
 @interface AppDelegate ()
@@ -22,7 +25,7 @@
     [self createShortcuts];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[LocalFielViewController alloc] init]];
     self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
