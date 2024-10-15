@@ -47,7 +47,7 @@
     [self.view addSubview:self.coverImage];
     
     // live photo
-    UILabel *livePhotoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.coverImage.frame) + 10, 120, 30)];
+    UILabel *livePhotoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.coverImage.frame) + 10, 220, 30)];
     livePhotoLabel.text = @"Live Photo(长按即可播放)";
     livePhotoLabel.textColor = [UIColor blackColor];
     [self.view addSubview:livePhotoLabel];
@@ -85,7 +85,7 @@
     }];
 }
 
-#pragma mark - bao
+#pragma mark - 保存live photo
 - (void)saveButtonClick {
     NSString * assetIdentifier = [[NSUUID UUID] UUIDString];
     NSString *imagePath = [self getFilePathWithKey:@"image.jpg"];
@@ -136,8 +136,6 @@
             }];
         }
     });
-
-    
 }
 
 - (void)chooseVideoFromLibrary {
@@ -184,17 +182,15 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     NSURL *videoUrlPath = info[UIImagePickerControllerMediaURL];
     if (videoUrlPath) {
-        NSURL *videoUrl = [NSURL fileURLWithPath: [videoUrlPath path]];
         // 获取视频文件名称并将视频文件移动到document目录下
-        NSString * lastPading = [[[videoUrl absoluteString] componentsSeparatedByString:@"/"] lastObject];
+        NSString * lastPading = [[[videoUrlPath absoluteString] componentsSeparatedByString:@"/"] lastObject];
         NSString * originPath = [self getFilePathWithKey:lastPading];
         self.videoUrl = originPath;
-        [[NSFileManager defaultManager] copyItemAtURL:videoUrl toURL:[NSURL fileURLWithPath:originPath] error:nil];
+        [[NSFileManager defaultManager] copyItemAtURL:videoUrlPath toURL:[NSURL fileURLWithPath:originPath] error:nil];
         
         // 截图首帧图片
-        self.coverImage.image = [self getVideoImageWithTime:0.0 videoPath:videoUrl];
+        self.coverImage.image = [self getVideoImageWithTime:0.0 videoPath:videoUrlPath];
     }
-
 }
 
 @end

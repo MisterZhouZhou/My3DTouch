@@ -25,7 +25,7 @@
     [self createShortcuts];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[LocalFielViewController alloc] init]];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
