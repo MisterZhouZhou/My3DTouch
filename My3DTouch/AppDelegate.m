@@ -6,11 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "LocalFielViewController.h"
-#import "LivePhotoPickerViewController.h"
-#import "PHAssetsViewController.h"
-#import "PeekAndPopViewController.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,10 +18,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 创建 3D Touch 配置菜单
     [self createShortcuts];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
     self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
